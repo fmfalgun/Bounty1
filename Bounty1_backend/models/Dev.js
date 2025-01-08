@@ -5,6 +5,7 @@ const DevSchema = new mongoose.Schema({
     whatsapp: String,
     linkedin: String,
     gmail: String,
+    pass:String,
     demands: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Demand' }]
 });
 

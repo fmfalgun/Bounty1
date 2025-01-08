@@ -6,6 +6,9 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
 
+const cors = require('cors');
+app.use(cors());
+
 // MongoDB connection
 mongoose.connect('mongodb://localhost:27017/startupDb', {
     useNewUrlParser: true,
@@ -18,12 +21,14 @@ const clientRoutes = require('./routes/client');
 const devRoutes = require('./routes/dev');
 const termsRoutes = require('./routes/terms');
 const demandsRoutes = require('./routes/demands');
+const applicationRoutes = require('./routes/applications');
 
 // Use Routes
-app.use('/api/client', clientRoutes);
-app.use('/api/dev', devRoutes);
+app.use('/api/clients', clientRoutes);
+app.use('/api/devs', devRoutes);
 app.use('/api/terms', termsRoutes);
 app.use('/api/demands', demandsRoutes);
+app.use('/api/applications',applicationRoutes);
 
 // Start the server
 const PORT = 3000;

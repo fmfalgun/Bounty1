@@ -10,6 +10,7 @@ const ClientSchema = new mongoose.Schema({
     startupIdea: String,
     salary: Number,
     equity: Number,
+    pass: String,
 });
 
 module.exports = mongoose.model('Client', ClientSchema);
